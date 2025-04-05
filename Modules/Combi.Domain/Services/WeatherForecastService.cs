@@ -1,25 +1,22 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Combi.Domain.Entities;
+using Combi.Domain.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Combi.Web.Controllers
+namespace Combi.Domain.Services
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastService: IWeatherForecastService
     {
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
+        public WeatherForecastService() { }
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<WeatherForecast> GetWeatherForecasts()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

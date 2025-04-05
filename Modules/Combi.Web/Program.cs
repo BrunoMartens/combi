@@ -1,9 +1,19 @@
 using Combi.Web.Middleware;
+using Combi.Domain.Configuration;
+using Combi.Dal.Configuration;
 using Microsoft.AspNetCore.Rewrite;
 
 var builder = WebApplication.CreateBuilder(args);
 
+#if DEBUG
+var connectionString = "test";//builder.Configuration.GetConnectionString("CombiDbContext"); 
+#else
+    var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+#endif
+
 // Add services to the container.
+builder.Services.AddCombiDal(connectionString);
+builder.Services.AddCombiDomain();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

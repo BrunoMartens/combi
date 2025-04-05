@@ -17,4 +17,9 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Combi.Dal\Combi.Dal.csproj" />
+    <ProjectReference Include="..\Combi.Domain\Combi.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

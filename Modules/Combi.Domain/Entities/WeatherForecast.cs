@@ -1,4 +1,4 @@
-namespace Combi.Web
+namespace Combi.Domain.Entities
 {
     public class WeatherForecast
     {

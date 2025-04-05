@@ -1,0 +1,34 @@
+services:
+  web:
+    build:
+      context: ./Modules
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - combi
+    environment:
+      - CONNECTION_STRING=Server=db;Database=combi;User Id=sa;Password=_rootRoot1234;TrustServerCertificate=True
+    depends_on:
+      - db
+  db:
+    build:
+      context: ./Database
+      dockerfile: Dockerfile
+    ports:
+      - "1433:1433"
+    environment:
+      - MSSQL_SA_PASSWORD=_rootRoot1234
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+    volumes:
+      - D:/SQL/data:/var/opt/mssql/data
+      - D:/SQL/log:/var/opt/mssql/log
+      - D:/SQL/secrets:/var/opt/mssql/secrets
+    networks:
+      - combi
+
+networks:
+  combi:
+    driver: bridge
+  
