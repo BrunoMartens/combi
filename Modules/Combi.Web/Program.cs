@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Rewrite;
 var builder = WebApplication.CreateBuilder(args);
 
 #if DEBUG
-var connectionString = "test";//builder.Configuration.GetConnectionString("CombiDbContext"); 
+    var connectionString = builder.Configuration.GetConnectionString("CombiDbContext"); 
 #else
     var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 #endif
