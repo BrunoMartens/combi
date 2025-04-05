@@ -1,0 +1,9 @@
+.vs
+.vscode
+.angular
+bin
+obj
+node_modules
+dist
+tmp
+out-tsc

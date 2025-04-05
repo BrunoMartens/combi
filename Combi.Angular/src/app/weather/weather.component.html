@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>Date</th>
+        <th>°C</th>
+        <th>°F</th>
+        <th>Summary</th>
+    </tr>
+    @for (item of data; track item) {
+        <tr>
+            <td>{{item.date}}</td>
+            <td>{{item.temperatureC}}</td>
+            <td>{{item.temperatureF}}</td>
+            <td>{{item.summary}}</td>
+        </tr>
+    }
+</table>
